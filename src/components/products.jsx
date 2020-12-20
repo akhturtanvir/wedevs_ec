@@ -101,6 +101,7 @@ class Products extends Component {
     }
 
     render() {
+        let sl = 1;
         return (
             <div className="container">
                 <div className="row justify-content-center">
@@ -168,19 +169,19 @@ class Products extends Component {
                                             <th scope="col">Title</th>
                                             <th scope="col">Description</th>
                                             <th scope="col">Price</th>
-                                            <th scope="col">Image</th>
+                                            {/* <th scope="col">Image</th> */}
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {this.state.lists.map(list => (
                                             <tr key={list.id}>
-                                                <th scope="row">{list.id}</th>
+                                                <th scope="row">{sl++}</th>
                                                 <td>2020-03.29</td>
                                                 <td>{list.title}</td>
                                                 <td>{list.description}</td>
                                                 <td>{list.price}</td>
-                                                <td>{list.image}</td>
+                                                {/* <td>{list.image}</td> */}
                                                 <td>
                                                     <a
                                                         href="#form"

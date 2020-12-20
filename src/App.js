@@ -6,6 +6,7 @@ import Register from './components/register';
 import Products from './components/products';
 import NotFound from './components/notfound';
 import GuestRoute from './components/guestRoute';
+import AuthRoute from './components/authRoute';
 import './App.css';
 
 class App extends Component {
@@ -17,8 +18,9 @@ class App extends Component {
           <Switch>
             <GuestRoute path="/login" component={Login} />
             <GuestRoute path="/register" component={Register} />
-            <Route path="/products" component={Products} />
+            <AuthRoute path="/products" component={Products} />
             <Route path="/not-found" component={NotFound} />
+            <Redirect from="/" to="/login" />
             <Redirect to="not-found" />
           </Switch>
         </div>

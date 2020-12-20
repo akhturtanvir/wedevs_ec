@@ -20,7 +20,6 @@ class Login extends Component {
         }).then(res => {
             // console.log(res);
             cookie.set("token", res.data.access_token);
-            cookie.set("user", res.data.user);
             this.props.history.replace("/products");
         }).catch(e => {
             this.setState({

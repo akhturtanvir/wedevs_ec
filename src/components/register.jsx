@@ -22,8 +22,11 @@ class Register extends Component {
         }).then(res => {
             // console.log(res);
             cookie.set("token", res.data.access_token);
-            cookie.set("user", res.data.user);
             this.props.history.replace("/products");
+        }).catch(e => {
+            this.setState({
+                errors:e.response.data
+            })
         });
     }
 
@@ -48,7 +51,7 @@ class Register extends Component {
         });
     }
 
-    render() {  
+    render() {
         return (            
             <div className="container" style={{padding:'100px 0px'}}>
                 <div className="row justify-content-center">
@@ -67,6 +70,7 @@ class Register extends Component {
                                         onChange={e => this.namechange(e)}
                                         className="form-control"
                                         placeholder="Name"
+                                        required
                                         autoComplete="off"
                                     />
                                 </div>
@@ -78,6 +82,7 @@ class Register extends Component {
                                         onChange={e => this.emailchange(e)}
                                         className="form-control"
                                         placeholder="email"
+                                        required
                                         autoComplete="off"
                                     />
                                 </div>
@@ -89,6 +94,7 @@ class Register extends Component {
                                         onChange={e => this.passwordchange(e)}
                                         className="form-control"
                                         placeholder="password"
+                                        required
                                         autoComplete="off"
                                     />
                                 </div>
